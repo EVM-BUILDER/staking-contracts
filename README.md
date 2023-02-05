@@ -47,3 +47,10 @@ $ npm run unstake
 ```shell
 $ npm run info
 ```
+
+### Create new validator address and private key
+
+```shell
+$ npm run createWallet
+```
+
