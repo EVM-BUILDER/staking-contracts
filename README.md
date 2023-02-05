@@ -51,6 +51,13 @@ $ npm run info
 ### Create new validator address and private key
 
 ```shell
-$ npm run createWallet
+$ npm run createwallet
+```
+
+
+### Check balance for validator address
+
+```shell
+$ npm run getbalance
 ```
 

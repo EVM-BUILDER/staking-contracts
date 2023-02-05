@@ -1,8 +1,5 @@
-// import { ethers } from "hardhat";
-var Accounts = require('web3-eth-accounts');
-
-const JSONRPC_URL = process.env.JSONRPC_URL ?? "";
-const accounts = new Accounts(JSONRPC_URL)
+const Accounts = require('web3-eth-accounts');
+const accounts = new Accounts(process.env.JSONRPC_URL)
 
 async function main() {
     const data = await accounts.create();

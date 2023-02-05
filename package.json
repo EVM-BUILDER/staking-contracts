@@ -9,6 +9,7 @@
     "deploy": "hardhat run scripts/deploy.ts --network polygonedge",
     "stake": "hardhat run scripts/stake.ts --network polygonedge",
     "createWallet": "hardhat run scripts/createWallet.ts",
+    "getbalance": "hardhat run scripts/getbalance.ts",
     "transfer": "hardhat run scripts/transfer.ts --network polygonedge",
     "unstake": "hardhat run scripts/unstake.ts --network polygonedge",
     "register-blskey": "hardhat run scripts/register-bls-key.ts --network polygonedge",
