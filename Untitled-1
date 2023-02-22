@@ -1,0 +1,5 @@
+
+
+polygon-edge genesis --consensus ibft --ibft-validator 0x069c18BfF74660ff376AD0c508AEe76CA8AA66de:0x9348c15d9fd308f602c3876d711027ad0608524929de22cf24e014d141bb7d35d01976f8260eda6762d9dcd20b6281e4 --bootnode=/ip4/45.76.190.242/tcp/1478/p2p/16Uiu2HAmGEEW4HeszS9wsQsDSDNZer6VqcposLFANGDEvn3CU6Uu
+
+
