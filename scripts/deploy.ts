@@ -1,7 +1,7 @@
 import {ethers} from "hardhat";
 
 const MIN_VALIDATOR_COUNT = process.env.MIN_VALIDATOR_COUNT ?? 1;
-const MAX_VALIDATOR_COUNT = process.env.MAX_VALIDATOR_COUNT ?? 100;
+const MAX_VALIDATOR_COUNT = process.env.MAX_VALIDATOR_COUNT ?? 1000;
 
 async function main() {
   const [deployer] = await ethers.getSigners();
