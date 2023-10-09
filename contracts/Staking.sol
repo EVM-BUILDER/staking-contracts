@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/utils/Address.sol";
@@ -6,10 +7,11 @@ contract Staking {
     using Address for address;
 
     // Parameters
-    uint128 public constant VALIDATOR_THRESHOLD = 10000 ether;
+    uint128 public VALIDATOR_THRESHOLD = 10000 ether;
 
     // Properties
     address[] public _validators;
+    address public owner;
 
     mapping(address => bool) public _addressToIsValidator;
     mapping(address => uint256) public _addressToStakedAmount;
@@ -46,6 +48,11 @@ contract Staking {
         _;
     }
 
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only the owner can call this function");
+        _;
+    }
+
     constructor(uint256 minNumValidators, uint256 maxNumValidators) {
         require(
             minNumValidators <= maxNumValidators,
@@ -53,6 +60,24 @@ contract Staking {
         );
         _minimumNumValidators = minNumValidators;
         _maximumNumValidators = maxNumValidators;
+        owner = msg.sender;
+    }
+
+    // Setter for _minimumNumValidators
+    function setMinimumNumValidators(uint256 newValue) public onlyOwner {
+        require(newValue < _maximumNumValidators);
+        _minimumNumValidators = newValue;
+    }
+
+    // Setter for _maximumNumValidators
+    function setMaximumNumValidators(uint256 newValue) public onlyOwner {
+        require(newValue > _minimumNumValidators);
+        _maximumNumValidators = newValue;
+    }
+
+    // Setter for VALIDATOR_THRESHOLD
+    function setValidatorThreSold(uint128 newValue) public onlyOwner {
+        VALIDATOR_THRESHOLD = newValue;
     }
 
     // View functions
