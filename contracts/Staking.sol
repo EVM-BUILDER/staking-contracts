@@ -77,7 +77,7 @@ contract Staking {
 
     // Setter for VALIDATOR_THRESHOLD
     function setValidatorThreSold(uint128 newValue) public onlyOwner {
-        VALIDATOR_THRESHOLD = newValue;
+        VALIDATOR_THRESHOLD = newValue * 1 ether;
     }
 
     // View functions
