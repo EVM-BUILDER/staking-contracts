@@ -29,6 +29,8 @@ contract Staking {
 
     event BLSPublicKeyRegistered(address indexed accout, bytes key);
 
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
     // Modifiers
     modifier onlyEOA() {
         require(!msg.sender.isContract(), "Only EOA can call function");
@@ -78,6 +80,17 @@ contract Staking {
     // Setter for VALIDATOR_THRESHOLD
     function setValidatorThreSold(uint128 newValue) public onlyOwner {
         VALIDATOR_THRESHOLD = newValue * 1 ether;
+    }
+
+    function transferOwnership(address newOwner) public onlyOwner {
+        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        _setOwner(newOwner);
+    }
+
+    function _setOwner(address newOwner) private {
+        address oldOwner = owner;
+        owner = newOwner;
+        emit OwnershipTransferred(oldOwner, newOwner);
     }
 
     // View functions
