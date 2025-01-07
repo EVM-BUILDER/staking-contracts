@@ -6,7 +6,7 @@ contract Staking {
     using Address for address;
 
     // Parameters
-    uint256 public VALIDATOR_THRESHOLD;
+    uint256 public VALIDATOR_THRESHOLD = 500000 ether;
 
     // Properties
     address[] public _validators;
@@ -46,14 +46,13 @@ contract Staking {
         _;
     }
 
-    constructor(uint256 minNumValidators, uint256 maxNumValidators, uint256 minValidatorThreshold) {
+    constructor(uint256 minNumValidators, uint256 maxNumValidators) {
         require(
             minNumValidators <= maxNumValidators,
             "Min validators num can not be greater than max num of validators"
         );
         _minimumNumValidators = minNumValidators;
         _maximumNumValidators = maxNumValidators;
-        VALIDATOR_THRESHOLD = minValidatorThreshold;
     }
 
     // View functions
