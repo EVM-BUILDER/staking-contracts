@@ -1,4 +1,4 @@
-import {HardhatUserConfig} from "hardhat/types";
+import { HardhatUserConfig } from "hardhat/types";
 import "@nomiclabs/hardhat-waffle"
 import "tsconfig-paths/register";
 import "@typechain/hardhat"
@@ -15,8 +15,14 @@ const config: HardhatUserConfig = {
     polygonedge: {
       url: process.env.JSONRPC_URL ?? "http://localhost:10002",
       accounts: [
-          ...privateKeys,
+        ...privateKeys,
       ],
+    },
+    "bsc_testnet": {
+      url: "https://bsc-testnet.public.blastapi.io",
+      accounts: [process.env.BSC_TESTNET_ACCOUNT as string],
+
+      // accounts: ["3258a2a5919144eeffdba96af54c072be98a003b28587604f12eeb1c3ec9eee4"]
     },
   },
   gasReporter: {
