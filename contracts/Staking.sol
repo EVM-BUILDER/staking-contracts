@@ -6,7 +6,7 @@ contract Staking {
     using Address for address;
 
     // Parameters
-    uint256 public VALIDATOR_THRESHOLD = 500000 ether;
+    uint128 public constant VALIDATOR_THRESHOLD = 1 ether;
 
     // Properties
     address[] public _validators;
@@ -111,7 +111,6 @@ contract Staking {
 
     // Private functions
     function _stake() private {
-        require(msg.value >= VALIDATOR_THRESHOLD, "Insufficient Amount");
         _stakedAmount += msg.value;
         _addressToStakedAmount[msg.sender] += msg.value;
 
